@@ -55,28 +55,28 @@ public class ModuleIOSparkMax implements ModuleIO {
         driveSparkMax = new CANSparkMax(1, MotorType.kBrushless);
         turnSparkMax = new CANSparkMax(2, MotorType.kBrushless);
         // turnAbsoluteEncoder = new AnalogInput(0);
-        turnEncoder = new CANcoder(0);
+        turnEncoder = new CANcoder(0, "GTX7130");
         absoluteEncoderOffset = Rotation2d.fromRotations(0.590682); // MUST BE CALIBRATED
         break;
       case 1:
         driveSparkMax = new CANSparkMax(11, MotorType.kBrushless);
         turnSparkMax = new CANSparkMax(12, MotorType.kBrushless);
         // turnAbsoluteEncoder = new AnalogInput(1);
-        turnEncoder = new CANcoder(1);
+        turnEncoder = new CANcoder(1, "GTX7130");
         absoluteEncoderOffset = Rotation2d.fromRotations(-0.374756); // MUST BE CALIBRATED
         break;
       case 2:
         driveSparkMax = new CANSparkMax(21, MotorType.kBrushless);
         turnSparkMax = new CANSparkMax(22, MotorType.kBrushless);
         // turnAbsoluteEncoder = new AnalogInput(2);
-        turnEncoder = new CANcoder(2);
+        turnEncoder = new CANcoder(2, "GTX7130");
         absoluteEncoderOffset = Rotation2d.fromRotations(0.45654); // MUST BE CALIBRATED
         break;
       case 3:
         driveSparkMax = new CANSparkMax(31, MotorType.kBrushless);
         turnSparkMax = new CANSparkMax(32, MotorType.kBrushless);
         // turnAbsoluteEncoder = new AnalogInput(3);
-        turnEncoder = new CANcoder(3);
+        turnEncoder = new CANcoder(3, "GTX7130");
         absoluteEncoderOffset = Rotation2d.fromRotations(0.053711); // MUST BE CALIBRATED
         break;
       default:
@@ -99,11 +99,11 @@ public class ModuleIOSparkMax implements ModuleIO {
     turnSparkMax.enableVoltageCompensation(12.0);
 
     driveEncoder.setPosition(0.0);
-    driveEncoder.setMeasurementPeriod(10);
+    driveEncoder.setMeasurementPeriod(64); // must be in range of [8.64]
     driveEncoder.setAverageDepth(2);
 
     turnRelativeEncoder.setPosition(0.0);
-    turnRelativeEncoder.setMeasurementPeriod(10);
+    turnRelativeEncoder.setMeasurementPeriod(64); // same as above
     turnRelativeEncoder.setAverageDepth(2);
 
     turnEncoder.setPosition(0);

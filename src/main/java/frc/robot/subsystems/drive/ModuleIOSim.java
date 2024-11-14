@@ -37,20 +37,20 @@ public class ModuleIOSim implements ModuleIO {
 
   @Override
   public void updateInputs(ModuleIOInputs inputs) {
-    driveSim.update(LOOP_PERIOD_SECS);
-    turnSim.update(LOOP_PERIOD_SECS);
+    // driveSim.update(LOOP_PERIOD_SECS);
+    // turnSim.update(LOOP_PERIOD_SECS);
 
-    inputs.drivePositionRad = driveSim.getAngularPositionRad();
-    inputs.driveVelocityRadPerSec = driveSim.getAngularVelocityRadPerSec();
-    inputs.driveAppliedVolts = driveAppliedVolts;
-    inputs.driveCurrentAmps = new double[] {Math.abs(driveSim.getCurrentDrawAmps())};
+    // inputs.drivePositionRad = driveSim.getAngularPositionRad();
+    // inputs.driveVelocityRadPerSec = driveSim.getAngularVelocityRadPerSec();
+    // inputs.driveAppliedVolts = driveAppliedVolts;
+    // inputs.driveCurrentAmps = new double[] {Math.abs(driveSim.getCurrentDrawAmps())};
 
-    inputs.turnAbsolutePosition =
-        new Rotation2d(turnSim.getAngularPositionRad()).plus(turnAbsoluteInitPosition);
-    inputs.turnPosition = new Rotation2d(turnSim.getAngularPositionRad());
-    inputs.turnVelocityRadPerSec = turnSim.getAngularVelocityRadPerSec();
-    inputs.turnAppliedVolts = turnAppliedVolts;
-    inputs.turnCurrentAmps = new double[] {Math.abs(turnSim.getCurrentDrawAmps())};
+    // inputs.turnAbsolutePosition =
+    //     new Rotation2d(turnSim.getAngularPositionRad()).plus(turnAbsoluteInitPosition);
+    // inputs.turnPosition = new Rotation2d(turnSim.getAngularPositionRad());
+    // inputs.turnVelocityRadPerSec = turnSim.getAngularVelocityRadPerSec();
+    // inputs.turnAppliedVolts = turnAppliedVolts;
+    // inputs.turnCurrentAmps = new double[] {Math.abs(turnSim.getCurrentDrawAmps())};
   }
 
   @Override
